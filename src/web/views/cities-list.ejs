@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Ciudades</title>
+</head>
+<body>
+    <h1>Listado de Ciudades</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>País</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% cities.forEach(city => { %>
+                <tr data-city-id="<%= city._id %>">
+                    <td><%= city.name %></td>
+                    <td><%= city.country %></td>
+                    <td><%= city.admin1 %></td>
+                    <td><%= city.id %></td>
+                    <td>
+                        <a href="/api/v1/admin/cities/<%= city._id %>/edit"><button>Editar</button></a>
+                        <form action="/api/v1/admin/cities-delete/<%= city._id %>" method="POST" style="display: inline;">
+                            <button type="submit">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <div>
+        <% if (page > 1) { %>
+            <a href="/api/v1/admin/cities?page=<%= page - 1 %>">Página anterior</a>
+        <% } %>
+        <% if (page < totalPages) { %>
+            <a href="/api/v1/admin/cities?page=<%= page + 1 %>">Página siguiente</a>
+        <% } %>
+    </div>
+    <a href="/api/v1/admin/cities/create"><button>Crear Ciudad</button></a>
+</body>
+</html>

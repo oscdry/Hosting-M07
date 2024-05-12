@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Ciudad</title>
+</head>
+<body>
+    <h1>Crear Ciudad</h1>
+    
+
+    <form action="/api/v1/admin/cities/create" method="post">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" value="<%= city.name %>">
+        <label for="country">País:</label>
+        <input type="text" id="country" name="country" value="<%= city.country %>">
+        <button type="submit">Crear Ciudad</button>
+    </form>
+</body>
+</html>

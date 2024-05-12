@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Ciudad</title>
+</head>
+<body>
+    <h1>Editar Ciudad</h1>
+    <form action="/api/v1/admin/cities/<%=city._id%>" method="post">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" value="<%= city.name %>" required>
+        <label for="country">País:</label>
+        <input type="text" id="country" name="country" value="<%= city.country %>" required pattern="[A-Z]{1,4}" title="El país debe contener entre 2 y 4 letras mayúsculas">
+        <button type="submit">Guardar Cambios</button>
+    </form>
+</body>
+</html>
