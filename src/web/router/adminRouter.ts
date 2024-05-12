@@ -9,7 +9,7 @@ import {
     removeCityService,
     getTotalCityCount
 
-  } from '../../services/c  itiesService.js';
+  } from '../../services/citiesService.js';
   AdminRouter.get('/cities', async (req, res) => {
     try {
         const totalCityCount = await getTotalCityCount();
